@@ -1,0 +1,58 @@
+﻿##USINGS##
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Routing;
+using Microsoft.AspNetCore.Builder;
+
+namespace ##NAMESPACE##
+{
+    public static class ##CLASS_NAME##
+    {
+        public static IEndpointRouteBuilder Map##ENTITY##(this IEndpointRouteBuilder endpoints)
+        {
+            var entityEndpoints = endpoints.MapGroup("##ENTITY##").WithTags("##ENTITY##");
+
+            entityEndpoints.MapGet("/", async (##CONTEXT## context, CancellationToken cancellationToken) 
+                => await context.##ENTITIES##.ToListAsync(cancellationToken));
+
+            entityEndpoints.MapGet("/{id}", async (##CONTEXT## context, Guid id, CancellationToken cancellationToken) 
+                => await context.##ENTITIES##.FindAsync(id, cancellationToken) is ##ENTITY## entity ? Results.Ok(entity) : Results.NotFound("No ##ENTITY## found"));
+
+            entityEndpoints.MapPost("/Save", async (##CONTEXT## context, ##ENTITY## entity, CancellationToken cancellationToken) =>
+            {
+                context.##ENTITIES##.Add(entity);
+                await context.SaveChangesAsync(cancellationToken);
+                return Results.Ok(entity);
+            });
+
+            entityEndpoints.MapPut("/Update/{id}", async (##CONTEXT## context, ##ENTITY## entity, Guid id, CancellationToken cancellationToken) =>
+            {
+                var dbEntity = await context.##ENTITIES##.FindAsync(id, cancellationToken);
+
+                if (dbEntity is null) { return Results.NotFound("No ##ENTITY## found"); }
+
+                ##UPDATE_ENTITY_START##
+                dbEntity.##PROPERTY_NAME## = entity.##PROPERTY_NAME##;
+                ##UPDATE_ENTITY_END##
+
+                await context.SaveChangesAsync(cancellationToken);
+
+                return Results.Ok(dbEntity);
+            });
+
+            entityEndpoints.MapDelete("/Delete/{id}", async (##CONTEXT## context, Guid id, CancellationToken cancellationToken) =>
+            {
+                var dbEntity = await context.##ENTITIES##.FindAsync(id, cancellationToken);
+
+                if (dbEntity is null) { return Results.NotFound("No ##ENTITY## found"); }
+
+                context.##ENTITIES##.Remove(dbEntity);
+                await context.SaveChangesAsync(cancellationToken);
+
+                return Results.Ok();
+            });
+
+            return endpoints;
+        }
+    }
+}

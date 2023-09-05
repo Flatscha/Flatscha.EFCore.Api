@@ -1,0 +1,18 @@
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Routing;
+using Microsoft.AspNetCore.Builder;
+
+namespace ##NAMESPACE##
+{
+    public static class ##CLASS_NAME##
+    {
+        public static IEndpointRouteBuilder ##METHOD_NAME##(this IEndpointRouteBuilder endpoints)
+        {
+            ##MAP_ENTITY_START##
+            endpoints.Map##ENTITY##();
+            ##MAP_ENTITY_END##
+
+            return endpoints;
+        }
+    }
+}
