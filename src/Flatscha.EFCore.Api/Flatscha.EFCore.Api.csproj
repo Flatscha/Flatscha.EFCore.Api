@@ -10,6 +10,7 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
+		<IsPackable>true</IsPackable>
 		<Authors>Flatscha</Authors>
 		<Owners>Flatscha</Owners>
 		<RepositoryUrl>https://github.com/Flatscha/Flatscha.EFCore.Api.git</RepositoryUrl>
