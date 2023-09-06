@@ -7,6 +7,13 @@
 		<ImplicitUsings>true</ImplicitUsings>
 		<LangVersion>Latest</LangVersion>
 		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<Authors>Flatscha</Authors>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/Flatscha/Flatscha.EFCore.Api</RepositoryUrl>
 	</PropertyGroup>
 
 	<ItemGroup>

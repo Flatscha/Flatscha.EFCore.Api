@@ -9,7 +9,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8BC56C88-456
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{3BD0AC5C-1EBF-4312-8268-CE258A659ADC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flatscha.EFCore.Api.TestConsole", "test\Flatscha.EFCore.Api.TestConsole\Flatscha.EFCore.Api.TestConsole.csproj", "{8EF44D5E-CD26-4507-8902-9A026694E1E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Flatscha.EFCore.Api.TestConsole", "test\Flatscha.EFCore.Api.TestConsole\Flatscha.EFCore.Api.TestConsole.csproj", "{8EF44D5E-CD26-4507-8902-9A026694E1E1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4310ACF0-4C27-412D-9FD5-2B79961836E7}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
