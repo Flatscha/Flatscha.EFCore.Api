@@ -7,13 +7,15 @@
 		<ImplicitUsings>true</ImplicitUsings>
 		<LangVersion>Latest</LangVersion>
 		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 	</PropertyGroup>
 
 	<PropertyGroup>
 		<Authors>Flatscha</Authors>
-		<RepositoryType>git</RepositoryType>
-		<RepositoryUrl>https://github.com/Flatscha/Flatscha.EFCore.Api</RepositoryUrl>
+		<Owners>Flatscha</Owners>
+		<RepositoryUrl>https://github.com/Flatscha/Flatscha.EFCore.Api.git</RepositoryUrl>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageProjectUrl>https://github.com/Flatscha/Flatscha.EFCore.Api.git</PackageProjectUrl>
+		<Description>Library that source generates all CRUD Minimal API endpoints for an Entity Framework context</Description>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -28,8 +30,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<None Remove="..\..\README.md" />
 		<None Remove="Templates\EFCore.template" />
 		<None Remove="Templates\EFCoreEntity.template" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\..\README.md" Pack="true" PackagePath="">
+			<Link>Properties\README.md</Link>
+		</None>
 	</ItemGroup>
 
 	<ItemGroup>
